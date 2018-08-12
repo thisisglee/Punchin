@@ -54,10 +54,15 @@
           $time_out = strtotime( $user['time_out'] );
           $time_out = date( 'H:i:s', $time_out );
 
+          if($user['id'] == 1)
+            {$verify = "True";}
+          else
+            {$verify = "False";}
+
     		  echo '<tr><td>' . $user['user_id'] . '</td><td>' .
     			$user['company_name'] . '</td><td>' .$date . '</td><td>' .
           $user['sponsor'] . '</td><td>' . $user['print_name'] . '</td><td>' .
-          $user['signature'] . '</td><td>' . $user['id'] . '</td><td>' . $user['badge_num'] . '</td><td>' .$time_in . '</td><td>' .$time_out . '</td></tr>' ;}
+          $user['signature'] . '</td><td>' . $verify . '</td><td>' . $user['badge_num'] . '</td><td>' .$time_in . '</td><td>' .$time_out . '</td></tr>' ;}
 
           echo '</tbody>';
           echo '</table>';
