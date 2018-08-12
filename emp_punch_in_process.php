@@ -8,7 +8,7 @@ $result = $conn->prepare($sql);
 $result->execute();
 $number_of_rows = $result->fetchColumn();
      if ($number_of_rows == 0)
-         {echo "You are not an Employee";
+         {echo "You are not an Employee, redirecting...";
          $conn = null;
           echo '<meta http-equiv="refresh" content="2;url=index.php" />';}
      else{
