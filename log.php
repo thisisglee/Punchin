@@ -7,20 +7,22 @@
   <link rel="stylesheet" href="styles.css" >
   </head>
   <body scroll="no" style="overflow: hidden">
+
     <!--header-->
-      <?php include('nav-bar.php'); ?>
+    <?php include('nav-bar.php'); ?>
     <!--show table-->
     <?php
-    $sort = 0;
+
       // connect
       require("dbconfig.php");
 
       // write the sql query
-      $sql = "SELECT * FROM users";
+      $sql = "SELECT * FROM users ORDER BY time_in DESC ";
 
+      //code to sort the table
       $sortby =!empty($_GET['sort']) ? $_GET['sort'] : '';
       if($sortby != NULL){
-          $sql .= " ORDER BY $sortby";
+          $sql = "SELECT * FROM users ORDER BY $sortby ";;
         }
 
       // execute the query and store the results
@@ -73,9 +75,10 @@
 
       ?>
 
-
+      <!--pop up for punch out-->
       <div align="center">
-      <button class="myBtn_multi">Punch OUT</button></div>
+      <button class="myBtn_multi">Punch OUT</button>
+      </div>
 
 
       <!-- The Modal -->
@@ -104,8 +107,9 @@
 
       </div>
       <script src="script.js"></script>
-  <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+      <!-- Currently working on the signature part, will be done soon
+      <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script> -->
   </body>
   </html>
